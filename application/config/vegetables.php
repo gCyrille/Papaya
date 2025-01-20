@@ -233,4 +233,4 @@ $config['edit_password'] = 'euro';
 | Papaya App version
 |--------------------------------------------------------------------------
 */
-$config['papaya_version'] = '1.8';
+$config['papaya_version'] = '2.0';
