@@ -127,7 +127,7 @@ if ( ! function_exists('delivery_steps'))
 				$content = array(
 					'date' 			=> $date->format('d F Y'),
 					'nb_orders'		=> $delivery->order_count,
-					'sunset'		=> date_sunset($date->getTimestamp(), SUNFUNCS_RET_STRING, -13.42397, 32.09368, 96, +2),
+					'sunset'		=> date("H:i", date_sun_info($date->getTimestamp(),-13.42397, 32.09368)['sunset']),
 					'url_details' 	=> base_url('deliveries/view/'.$delivery->id),
 					'url_print_invoices'	=> base_url('invoices/print_all/'.$delivery->id)
 					);
