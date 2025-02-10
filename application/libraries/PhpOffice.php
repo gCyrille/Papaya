@@ -8,6 +8,8 @@ use PhpOffice\PhpSpreadsheet\Writer\IWriter;
 use PhpOffice\PhpSpreadsheet\Writer\Pdf;
 use PhpOffice\PhpSpreadsheet\Worksheet\PageSetup;
 
+define('THIRD_PARTY', APPPATH.'libraries'.DIRECTORY_SEPARATOR.'third_party'.DIRECTORY_SEPARATOR);
+
 class PhpOffice {
 
 	protected $CI;
@@ -22,11 +24,12 @@ class PhpOffice {
 		// Assign the CodeIgniter super-object
 		$this->CI =& get_instance();
 		
-		require_once(APPPATH . '/libraries/third_party/dompdf/autoload.inc.php');
+		require_once(THIRD_PARTY.'dompdf'.DIRECTORY_SEPARATOR.'autoload.inc.php');
 		
 		spl_autoload_register(function ($name) {
 			//var_dump($name);
-			require_once APPPATH . '\libraries\third_party\\' . $name . '.php';
+			
+			require_once THIRD_PARTY.str_replace('\\', DIRECTORY_SEPARATOR, $name).'.php';
 
 		});
 	}
