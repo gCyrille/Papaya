@@ -10,3 +10,20 @@ Il a été développé en PHP/HTML5 dans l'optique de facilité son évolution d
 Ce logiciel utilise les framework Codeigniter et Semantic-UI pour la partie backend et la partie front-end. 
 Pour la partie base de donnée il se repose sur une base MySQL standard. 
 Tout a été fait pour faciliter son installation sur un poste utilisateur hors-ligne, nécessitant uniquement une installation de XAMPP.
+
+### Version 2.0
+
+This version only add support for PHP >=8.2. All features are the same as Papaya 1.8
+
+## Migration to PHP >=8.2
+
+The project now uses https://github.com/pocketarc/codeigniter to work with PHP >=8.2.
+
+## PDFtoPrinter
+
+In order to print invoces and others files, the application uses: https://mendelson.org/pdftoprinter.html  
+Refer to the documentation if you have any issue to print.
+
+## Installation
+
+Go to http://127.0.0.1/papaya/install and follow the instructions.

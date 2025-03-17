@@ -196,7 +196,7 @@ class Orders extends CI_Controller {
 		$customers_with_order = array_column($this->orders_model->get_list($delivery->id), 'customer', 'c_id');
 		
 		// Check imported vegetables, add it if not in the list of the delivery
-		$imported_veget = json_decode(base64_decode(rawurldecode($this->input->get('vegets'))), TRUE);
+		$imported_veget = $this->input->get('vegets') ? json_decode(base64_decode(rawurldecode($this->input->get('vegets'))), TRUE) : "";
 		$veget_ids = array_column($delivery->vegetables, 'id');
 		
 		if (is_array($imported_veget))
@@ -334,7 +334,7 @@ class Orders extends CI_Controller {
 
 		//Import vegetables list
 		$order->vegetables = json_decode($order->vegetables, TRUE);
-		$imported_veget = json_decode(base64_decode(rawurldecode($this->input->get('vegets'))), TRUE);
+		$imported_veget = $this->input->get('vegets') ? json_decode(base64_decode(rawurldecode($this->input->get('vegets'))), TRUE) : "";
 		$replace = $this->input->get('replace_list');
 		
 		if (is_array($imported_veget) AND count($imported_veget) > 0)

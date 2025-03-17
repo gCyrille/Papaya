@@ -154,6 +154,7 @@ class Administration extends CI_Controller {
 				
 				break;
 			case 'step3':
+				$this->load->library('migration');
 				// use migration system to create the database
                 if ($this->migration->current() === FALSE)
                 {
@@ -180,6 +181,7 @@ class Administration extends CI_Controller {
 	 */
 	public function migrate($ver=-1)
 	{
+		$this->load->library('migration');
 		if ($ver == -1)
 		{
 			if ($this->migration->current() === FALSE)

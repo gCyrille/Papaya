@@ -529,7 +529,7 @@ class Accounting extends CI_Controller {
 		}
 		
 		$this->load->library('parser');
-		$this->load->library('phpoffice');
+		$this->load->library('PhpOffice');
 		$this->load->helper('file');
 		
 		$html = $this->accounting_sheet($delivery);
@@ -577,7 +577,7 @@ class Accounting extends CI_Controller {
 		}
 		
 		$this->load->library('parser');
-		$this->load->library('phpoffice');
+		$this->load->library('PhpOffice');
 		$this->load->helper('file');
 		$this->load->model('orders_model');
 		

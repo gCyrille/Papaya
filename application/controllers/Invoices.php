@@ -272,8 +272,12 @@ class Invoices extends CI_Controller {
 		$this->load->helper('file');
 		$this->load->helper('path');
 		
-		$invoice->header_url = APPPATH.'/../'.$tpl_config['header_img'];
-		
+		$imagePath = FCPATH.$tpl_config['header_img'];
+		$imageData = file_get_contents($imagePath);
+		$imageType = pathinfo($imagePath, PATHINFO_EXTENSION);
+		$imageBase64 = 'data:image/' . $imageType . ';base64,' . base64_encode($imageData);
+		$invoice->header_url = $imageBase64;
+
 		$html = $this->parser->parse('invoices/tpl_invoice', $invoice, TRUE);
 		
 		// Load and concat CSS for the invoice
